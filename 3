@@ -1,0 +1,33 @@
+import json
+import paramiko
+
+
+class SshConnect():
+    def __init__(self):
+        self.json_open = open('connection_address.json', 'r')
+        self.json_load = json.load(self.json_open)
+        self.connection_info = []
+
+        #valuesで値をとってくる
+        for v in self.json_load:
+            self.connection_info.append(v)
+
+        print("aaa", self.connection_info)
+
+    def connection(self, ip, port, user):
+        self.client = paramiko.SSHClient()
+        self.client.set_missing_host_key_poilcy(paramiko.AutoAddPolicy)
+        self.client.connect(ip, port=port, username=user)
+
+    def put(self):
+        print("iiii", self.connection_info)
+        try:
+            for info in self.connection_info
+                connection(info.ip, info.port, info.user)
+                sftp_connection = self.client.opne_sftp()
+                client.close()
+        finally:
+            client.close()
+        
+ssh = SshConnect()
+ssh.put()
