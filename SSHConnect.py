@@ -30,5 +30,5 @@ class SSHConnect():
         finally:
             self.client.close()
         
-ssh = SSHConnect()
-ssh.put("text.txt", "/tmp/text.txt")
+# ssh = SSHConnect()
+# ssh.put("text.txt", "/tmp/text.txt")
